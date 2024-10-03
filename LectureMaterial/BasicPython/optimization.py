@@ -14,7 +14,8 @@ a = -1.0
 b = 2.0
 c = 5.0
 
-# Things to check: method, tolerances, and options 
+# Things to check if you are frustrated with the output: method, tolerances, and
+# options 
 res = minimize(function_to_minimize, -3.0, args=(a, b, c))
 print(res)
 
