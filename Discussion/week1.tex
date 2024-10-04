@@ -1,0 +1,100 @@
+\documentclass[9pt, aspectratio=169, handout]{beamer}
+
+\input{settings.tex}
+
+\title{MAE 131A Discussion Sections\\ Week 1}
+\author{Chuanjin Su}
+\institute[UCLA MAE]{Mechanical and Aerospace Engineering Department\\
+    University of California, Los Angeles}
+\date{Oct 4, 2024}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Problem 1}
+    \begin{columns}
+        \column{.3\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/fig1.1.jpg}
+        \end{figure}
+        \column{.7\textwidth}
+        Consider the temperature distribution associated with a $dx$ differential control volume within the one-dimensional plane walls shown on the left.
+        \begin{itemize}
+            \item[(a)] Steady-state conditions exist. Is thermal energy being generated within the differential control volume? If so, is the generation rate positive or negative?
+            \item[(b)] Steady-state conditions exist as in part (a). Is the volumetric generation rate positive or negative within the differential control volume?
+            \item[(c)] Steady-state conditions \myhl{do not} exist, and there is no volumetric thermal energy generation. Is the temperature of the material in the differential control volume increasing or decreasing with time?
+            \item[(d)] Transient conditions exist as in part (c). Is the temperature increasing or decreasing with time?
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1 Solution}
+    \begin{columns}
+        \column{.3\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/fig1.1.jpg}
+        \end{figure}
+        \column{.7\textwidth}
+        \begin{itemize}
+            \item[(a)] Steady-state conditions exist. Is thermal energy being generated within the differential control volume? If so, is the generation rate positive or negative?\par\pause
+            \myhlb{Solution: } using the heat conduction equation: $\cancel{\rho c_v \frac{\partial T}{\partial t}} = k\frac{\partial^2 T}{\partial x^2} + \dot{Q}$, the sign of $\dot{Q}$ is in opposite to $\partial^2 T/\partial x^2$. Answer: Negative.\pause
+            \item[(b)] Steady-state conditions exist as in part (a). Is the volumetric generation rate positive or negative within the differential control volume?\par\pause
+            \myhlb{Solution: } Same as (a), but the sign of $\dot{Q}$ is positive.\pause
+            \item[(c)] Steady-state conditions \myhl{do not} exist, and there is no volumetric thermal energy generation. Is the temperature of the material in the differential control volume increasing or decreasing with time?\par\pause
+            \myhlb{Solution: } $\rho c_v \frac{\partial T}{\partial t} = k\frac{\partial^2 T}{\partial x^2} + \cancel{\dot{Q}}$. Answer: Increasing.\pause
+            \item[(d)] Transient conditions exist as in part (c). Is the temperature increasing or decreasing with time?\par\pause
+            \myhlb{Solution: } Same as (c). Answer: decreasing.
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 2 (3.18 in the book)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{Figures/fig1.2.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Problem 2 (3.18 in the book) Solution}
+    \begin{columns}
+        \column{.35\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/fig1.2.jpg}
+        \end{figure}
+        \column{.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.7\textwidth]{Figures/fig1.2_solution.jpg}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 3 (3.101 in the book)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{Figures/fig1.3.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Problem 3 (3.101 in the book) Solution}
+    \begin{columns}
+        \column{.35\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/fig1.3.jpg}
+        \end{figure}
+        \column{.45\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.7\textwidth]{Figures/fig1.3_solution.jpg}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\end{document}

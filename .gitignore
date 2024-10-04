@@ -179,4 +179,9 @@ cython_debug/
 *.pdf
 *.out
 *.synctex.gz
-
+*.toc
+*.xdv
+*.nav
+*.snm
+*.fls
+*.fdb_latexmk
