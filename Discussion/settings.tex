@@ -1,0 +1,133 @@
+% +==================================================+
+% |   ████████╗██╗  ██╗███████╗███╗   ███╗███████╗   |
+% |   ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝   |
+% |      ██║   ███████║█████╗  ██╔████╔██║█████╗     |
+% |      ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝     |
+% |      ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗   |
+% |      ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝   |
+% +==================================================+
+
+\useinnertheme{rectangles}
+\useoutertheme{infolines}
+
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \rule{\paperwidth}{0.1pt}\vskip0.2pt%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.2\paperwidth, ht=2.25ex, dp=1ex, center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.6\paperwidth, ht=2.25ex, dp=1ex, center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.2\paperwidth, ht=2.25ex, dp=1ex, center]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate\hfill\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+% hrule under the frametitle, see:
+% https://tex.stackexchange.com/questions/343517/beamer-full-width-hrule-below-frame-title
+\setbeamertemplate{frametitle}{%
+    \usebeamerfont{frametitle}\insertframetitle%
+    \vphantom{g}%
+    \par%
+    \makebox[\linewidth][c]{%
+        \rule[0.5\baselineskip]{\paperwidth}{0.4pt}%
+    }%
+}
+
+% \beamertemplatenavigationsymbolsempty % remove navigation bar
+
+\definecolor{grey80}{HTML}{CCCCCC}
+\definecolor{grey90}{HTML}{E6E6E6}
+\definecolor{grey95}{HTML}{F2F2F2}
+
+\usepackage[svgnames, x11names]{xcolor}
+\usecolortheme[named=DarkSlateGrey]{structure}
+\setbeamercolor{background canvas}{bg=white}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+
+\let\oldtiny\tiny
+\let\oldscriptsize\scriptsize
+\let\oldfootnotesize\footnotesize
+\let\oldsmall\small
+\let\oldnormalsize\normalsize
+\let\oldlarge\large
+\let\oldLarge\Large
+\let\oldLARGE\LARGE
+\let\oldhuge\huge
+\let\oldHuge\Huge
+\renewcommand*{\footnotesize}{\oldfootnotesize\scriptsize}
+\renewcommand*{\normalsize}{\oldnormalsize\oldsmall}
+\setbeamerfont{frametitle}{size=\oldnormalsize}
+
+% +=================================+
+% |   ██████╗ ██╗██████╗ ███████╗   |
+% |   ██╔══██╗██║██╔══██╗██╔════╝   |
+% |   ██████╔╝██║██████╔╝███████╗   |
+% |   ██╔══██╗██║██╔══██╗╚════██║   |
+% |   ██████╔╝██║██████╔╝███████║   |
+% |   ╚═════╝ ╚═╝╚═════╝ ╚══════╝   |
+% +=================================+
+
+% \usepackage[style=nejm,backend=biber]{biblatex}
+% \addbibresource{my.bib}
+% \renewcommand*{\bibfont}{\footnotesize}
+
+% +==========================================+
+% |   ███╗   ███╗ █████╗ ████████╗██╗  ██╗   |
+% |   ████╗ ████║██╔══██╗╚══██╔══╝██║  ██║   |
+% |   ██╔████╔██║███████║   ██║   ███████║   |
+% |   ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║   |
+% |   ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║   |
+% |   ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝   |
+% +==========================================+
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{cancel}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{feynmf}
+\usepackage{cleveref}
+\DeclareGraphicsRule{*}{mps}{*}{}
+
+% +===================================================+
+% |   ███████╗██╗ ██████╗ ██╗   ██╗██████╗ ███████╗   |
+% |   ██╔════╝██║██╔════╝ ██║   ██║██╔══██╗██╔════╝   |
+% |   █████╗  ██║██║  ███╗██║   ██║██████╔╝█████╗     |
+% |   ██╔══╝  ██║██║   ██║██║   ██║██╔══██╗██╔══╝     |
+% |   ██║     ██║╚██████╔╝╚██████╔╝██║  ██║███████╗   |
+% |   ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝   |
+% +===================================================+
+\usepackage{subcaption}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+% +===========================================================+
+% |    ██████╗██╗  ██╗██╗███╗   ██╗███████╗███████╗███████╗   |
+% |   ██╔════╝██║  ██║██║████╗  ██║██╔════╝██╔════╝██╔════╝   |
+% |   ██║     ███████║██║██╔██╗ ██║█████╗  ███████╗█████╗     |
+% |   ██║     ██╔══██║██║██║╚██╗██║██╔══╝  ╚════██║██╔══╝     |
+% |   ╚██████╗██║  ██║██║██║ ╚████║███████╗███████║███████╗   |
+% |    ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝   |
+% +===========================================================+
+
+% \usepackage{xeCJK}
+% \setCJKmainfont{PingFang SC}
+
+% +====================================+
+% |   ███╗   ███╗██╗███████╗ ██████╗   |
+% |   ████╗ ████║██║██╔════╝██╔════╝   |
+% |   ██╔████╔██║██║███████╗██║        |
+% |   ██║╚██╔╝██║██║╚════██║██║        |
+% |   ██║ ╚═╝ ██║██║███████║╚██████╗   |
+% |   ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝   |
+% +====================================+
+
+\usepackage{fontawesome5}
+\usepackage{twemojis}
+\newcommand{\myhl}[1]{\textcolor{DeepPink}{#1}}
+\newcommand{\myhlb}[1]{\textcolor{Blue}{#1}}
