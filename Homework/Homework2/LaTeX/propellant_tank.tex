@@ -1,0 +1,62 @@
+% https://cremeronline.com/LaTeX/minimaltikz.pdf is a great primer for tikz
+
+\begin{tikzpicture}
+    %%  Draw Tank with htc Labels
+    % Draw Tank
+    \draw [fill=teal, draw=teal] (0,0) rectangle (6, -3);
+    \draw [fill=cyan, draw=cyan] (0,2) rectangle (6,5);
+    
+    \draw [ultra thick] (0, -3) -- (0, 5);
+    \draw [ultra thick] (0, 2) -- (6, 2);
+
+    % Heat Transfer Coefficients
+    \draw [->, thick] (-1, -1.5) -- (0, -1.5);
+    \draw [->, thick] (-1, 1) -- (0, 1);
+    \draw [->, thick] (-1, 3.5) -- (0, 3.5);
+    \node [align=center, left, rotate=-90] at (-1.75, -1.5) {$h_{\infty} = \numrange{10}{100}~\si{\watt\per\square\meter\per\kelvin}$, \\ $T_{\infty} = \SI{295}{\kelvin}$};
+%    % Ambient to tank wall (bottom propellant)
+%	\draw [->, thick] (-1, -1.5) -- (0, -1.5);
+%    \node [align=center, left] at (-1, -1.5) {$h_{\infty} = \numrange{10}{100}~\si{\watt\per\square\meter\per\kelvin}$, \\ $T_{\infty} = \SI{295}{\kelvin}$};
+%   % Ambient to tank wall (ullage propellant)
+%	\draw [->, thick] (-1, 1) -- (0, 1);
+%    \node [align=center, left] at (-1, 1) {$h_{\infty} = \numrange{10}{100}~\si{\watt\per\square\meter\per\kelvin}$, \\ $T_{\infty} = \SI{295}{\kelvin}$};
+%    % Ambient to tank wall (top propellant)
+%    \draw [->, thick] (-1, 3.5) -- (0, 3.5);
+%    \node [align=center, left] at (-1, 3.5) {$h_{\infty} = \numrange{10}{100}~\si{\watt\per\square\meter\per\kelvin}$, \\ $T_{\infty} = \SI{295}{\kelvin}$};
+    % Tank wall to bottom propellant
+    \draw [->, thick] (0, -1.5) -- (1, -1.5);
+    \node [align=center, right] at (1, -1.5) {$h_{\infty} = \numrange{1}{10}~\si{\watt\per\square\meter\per\kelvin}$};
+    % Tank wall to ullage
+    \draw [->, thick] (0, 1) -- (1, 1);
+    \node [align=center, right] at (1, 1) {$h_{\infty} = \numrange{1}{10}~\si{\watt\per\square\meter\per\kelvin}$};
+    % Tank wall to top propellant
+    \draw [->, thick] (0, 3.5) -- (1, 3.5);
+    \node [align=center, right] at (1, 3.5) {$h_{\infty} = \numrange{1}{10}~\si{\watt\per\square\meter\per\kelvin}$};
+    
+   
+    %%  Draw Tank with HT labels
+    % Draw Tank
+    \draw [fill=teal, draw=teal] (8,0) rectangle (14, -3);
+    \draw [fill=cyan, draw=cyan] (8,2) rectangle (14,5);
+    
+    \draw [ultra thick] (8, -3) -- (8, 5);
+    \draw [ultra thick] (8, 2) -- (14, 2);
+    
+    % HT
+    % Ambient to bottom propellant
+    \draw [->, thick] (7.5, -1.5) -- (8.5, -1.5);
+    \node [left] at (7.5, -1.5) {$\dot{Q}_{\infty, b}$};
+    % Ambient to ullage
+    \draw [->, thick] (7.5, 1) -- (8.5, 1);
+    \node [left] at (7.5, 1) {$\dot{Q}_{\infty, u}$};
+    % Ambient to top propellant
+    \draw [->, thick] (7.5, 3.5) -- (8.5, 3.5);
+    \node [left] at (7.5, 3.5) {$\dot{Q}_{\infty, t}$};
+    % Bottom propellant to ullage
+    \draw [->, thick] (11, -0.5) -- (11, 0.5);
+    \node [left] at (11, -0.5) {$\dot{Q}_{b, u}$};
+    % Ullage to top propellant
+    \draw [->, thick] (11, 1.5) -- (11, 2.5);
+    \node [left] at (11, 2.5) {$\dot{Q}_{u, t}$};
+    
+\end{tikzpicture}
