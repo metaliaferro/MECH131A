@@ -21,7 +21,7 @@ Due date: October $18^{\mathrm{th}}$, 2024
 	\item Indicate the names of your study group members.
 	\item Draw a sketch of the problem.
 	\item If using a specific solution methodology is specified, please include a copy of the Python/MATLAB script.
-	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computationally methodology.
+	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computational methodology.
 \end{enumerate}
 
 
@@ -36,6 +36,8 @@ Due date: October $18^{\mathrm{th}}$, 2024
 			Comment on the effect of the \Bi~on the solution.
 			When does it approximate the solution assuming thin layer of aluminum is held at \SI{60}{\celsius} where it touches the water pipe?
 			When does it not?
+			\textit{Hint: You are not being asked to find the exact values of the resistances in the resistance network; you are being asked how the overall \Bi~that incorporates these resistances affects the solution.
+			A good place to start would be non-dimensionalizing both the governing equation and boundary condition.}
 		\item In this part you will get a more accurate solution by including the temperature dependence of the radiative heat transfer.
 			\begin{enumerate}
 				\item Using the results from the solution in class, estimate the temperature of the heated surface radiating to the aluminum plate.
@@ -47,7 +49,7 @@ Due date: October $18^{\mathrm{th}}$, 2024
 					q'' = \epsilon \sigma \left( T_r^4 - T^4 \right)
 				\end{equation*}
 				
-				\item Integrate the equation numerically and compare to the solution above when you assumed $q'' = \SI{800}{\watt\per\square\meter}$ for a variety of \Bi and both finishes of aluminum.
+				\item Integrate the equation numerically and compare to the solution above when you assumed $q'' = \SI{800}{\watt\per\square\meter}$ for a variety of \Bi~and both finishes of aluminum.
 					Comment on the differences.
 			\end{enumerate}
 	\end{enumerate}
@@ -156,6 +158,13 @@ Due date: October $18^{\mathrm{th}}$, 2024
 			
 			\begin{equation*}
 				C_n = \frac{2 \theta_b \mysin{\lambda_n t}}{\lambda_n t + \mysin{\lambda_n t} \mycos{\lambda_n t}}.
+			\end{equation*}
+			
+			Note: You do not have to prove that $\mycos{\lambda_n y}$ forms a mutually orthogonal basis set of functions.
+			In other words, apply the following equation from the textbook:
+			
+			\begin{equation*}
+				\myfunc{f}{x} = \sum_{n = 0}^{\infty} A_n \myfunc{g_n}{x} \to A_n = \frac{\int_a^b \myfunc{f}{x} \myfunc{g_n}{x} d x}{\int_a^b \myfunc{g_n^2}{x} d x}
 			\end{equation*}
 			
 			You now have the analytical solution for an infinite fin that includes the temperature change across the fin.
