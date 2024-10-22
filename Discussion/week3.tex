@@ -1,0 +1,124 @@
+\documentclass[9pt, aspectratio=169, handout]{beamer}
+
+\input{settings.tex}
+
+\title{MAE 131A Discussion Sections\\ Week 3}
+\author{Chuanjin Su}
+\institute[UCLA MAE]{Mechanical and Aerospace Engineering Department\\
+    University of California, Los Angeles}
+\date{Oct 18, 2024}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Laminar boundary layer problem}
+    The boundary layer problem can be set with the mass and the momentum equations:
+    \begin{subequations}
+        \begin{align}
+            \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0, \label{eq:mass} \\
+            u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} &= \nu\frac{\partial^2 u}{\partial y^2},\label{eq:momentum}
+        \end{align}
+    \end{subequations}
+    with the boundary conditions,
+    \begin{subequations}
+        \begin{align}
+            u(y=0) &=0, \\
+            v(y=0) &= 0, \\
+            u(y=\delta) &= u_\infty, \\
+            \frac{\partial u}{\partial y}\bigg|_{y=\delta} &= 0.
+        \end{align}
+    \end{subequations}
+    By integrating Eq.~\eqref{eq:mass} from $y=0$ to $y=\delta$, since $v(y=0)=0$, it is obtained that,
+    \begin{equation}
+        v(y=\delta) = -\int_0^\delta \frac{\partial u}{\partial x}dy.
+    \end{equation}
+    Now, we integrate Eq.~\eqref{eq:momentum} from $y=0$ to $y=\delta$,
+    \begin{equation}
+        \int_0^\delta u\frac{\partial u}{\partial x}dy + uv\bigg|_0^\delta - \int_0^\delta u\cancelto{-\frac{\partial u}{\partial x}}{\frac{\partial v}{\partial y}}dy = \nu \frac{\partial u}{\partial y}\bigg|_0^\delta.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \frac{\mathrm{d} }{\mathrm{d} x} \left\lbrace \int_0^\delta (u_\infty - u) u \mathrm{d}y \right\rbrace = \nu \frac{\partial u}{\partial y}\bigg|_{y=0}. \label{eq:velocity_integral}
+    \end{equation}
+
+    Now, for the thermal boundary layer, the energy equation is,
+    \begin{equation}
+        u\frac{\partial T}{\partial x} + v\frac{\partial T}{\partial y} = \alpha\frac{\partial^2 T}{\partial y^2}, \label{eq:energy}
+    \end{equation}
+    with the boundary conditions,
+    \begin{subequations}
+        \begin{align}
+            T(y=0) &= T_w, \\
+            T(y=\delta_T) &= T_\infty, \\
+            \left.\frac{\partial T}{\partial y}\right|_{y=\delta_T} &= 0.
+        \end{align}
+    \end{subequations}
+    Integrate Eq.~\eqref{eq:energy} from $y=0$ to $y=\delta_T$, we have,
+    \begin{equation}
+        \int_0^{\delta_T} u\frac{\partial T}{\partial x}dy + vT\bigg|_0^{\delta_T} - \int_0^{\delta_T} T\cancelto{-\frac{\partial u}{\partial x}}{\frac{\partial v}{\partial y}}dy = \alpha\frac{\partial T}{\partial y}\bigg|_{y=0}^{\delta_T},
+    \end{equation}
+    resulting in,
+    \begin{equation}
+        \frac{\mathrm{d} }{\mathrm{d} x} \left\lbrace \int_0^{\delta_T} (T_\infty - T) u \mathrm{d}y \right\rbrace = \alpha \frac{\partial T}{\partial y}\bigg|_{y=0}. \label{eq:temperature_integral}
+    \end{equation}
+
+    Eqs.~\cref{eq:velocity_integral,eq:temperature_integral} are the key equations to solve the boundary layer problem.
+
+    \textbf{For example}, if the velocity profile is assumed to be a power-law profile up to the third order, i.e., $u(y)/u_{\infty} = a_1 + a_2 (y/\delta)^2 + a_3(y/\delta)^2 + a_4(y/\delta)^3$, the coefficients can be identified by the boundary conditions such that $a_1=0, a_2 = 3/2, a_3=0, a_4=-1/2$. Thus,
+    \begin{equation}
+        \frac{u}{u_{\infty}} = \frac{3}{2} \frac{y}{\delta} - \frac{1}{2} \left(\frac{y}{\delta}\right)^3. \label{eq:power_law}
+    \end{equation}
+    Substituting Eq.~\eqref{eq:power_law} into Eq.~\eqref{eq:velocity_integral}, it is obtained that,
+    \begin{equation}
+        \frac{\mathrm{d} }{\mathrm{d} x} \left(\frac{39}{280} u_{\infty}^2 \delta \right) = \frac{3}{2}\frac{\nu u_{\infty}}{\delta} \qquad \Rightarrow \delta = \sqrt{\frac{280}{13}} \sqrt{\frac{\nu x}{u_{\infty}}} = 4.64 \mathrm{Re}_x^{-1/2} x
+    \end{equation}
+
+    For the thermal boundary layer, if the temperature profile is also taken to be,
+    \begin{equation}
+        \frac{T - T_w}{T_\infty - T_w} = b_1 + b_2\left(\frac{y}{\delta_T}\right) + b_3\left(\frac{y}{\delta_T}\right)^2 + b_4\left(\frac{y}{\delta_T}\right)^3,
+    \end{equation}
+    using the boundary conditions, it is identified that $b_1=0, b_2=\frac{3}{2}, b_3=0, b_4=-\frac{1}{2}$. Substituting the temperature profile into Eq.~\eqref{eq:temperature_integral}, it can be shown that $\delta_T/\delta = \mathrm{Pr}^{-1/3}/1.026$.
+\end{frame}
+
+\begin{frame}{Problem 1}
+    \begin{columns}
+        \column{0.8\textwidth}
+        The temperature profile in the thermal boundary layer for convection on a horizontal surface for constant wall temperature can be assumed to be a \myhl{second-degree polynomial} function. Obtain the final temperature profile in terms of thermal boundary layer thickness.
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1 Solution}
+    \textbf{Solution}: Consider the temperature profile $T=Ay^2 + By + C$, the boundary conditions are:
+    \begin{equation}
+        \left\lbrace
+        \begin{aligned}
+            T(y=0) &= T_w, \\
+            T(y=\delta_T) &= T_\infty, \\
+            \left.\frac{\partial T}{\partial y}\right|_{y=\delta_T} &= 0.
+        \end{aligned}
+        \right. \Rightarrow
+        \left\lbrace
+        \begin{aligned}
+            C &= T_w, \\
+            A\delta_T^2 + B\delta_T + T_w &= T_\infty, \\
+            2A\delta_T + B &= 0.
+        \end{aligned}
+        \right.
+    \end{equation}
+    Thus, $A=\frac{T_w - T_{\infty}}{\delta_T^2}$, $B=\frac{2(T_{\infty}-T_w)}{\delta_T}$, and $C=T_w$, the temperature profile is,
+    \begin{equation}
+        T(y) = \frac{T_w - T_{\infty}}{\delta_T^2}y^2 + \frac{2(T_{\infty}-T_w)}{\delta_T}y + T_w.
+    \end{equation}
+\end{frame}
+
+\begin{frame}{Problem 2}
+    \begin{columns}
+        \column{0.8\textwidth}
+        If both the velocity profile and the temperature profile are assumed to be sinusoidal, i.e., $u(y) / u_{\infty} = \sin(\pi y/\delta)$ and $(T(y) - T_w) / (T_{\infty} - T_w) = \sin(\pi y/\delta_T)$, determine the boundary layer thicknesses for the velocity profile. And try to obtain the boundary layer thickness for the temperature profile.
+    \end{columns}
+\end{frame}
+
+\end{document}
