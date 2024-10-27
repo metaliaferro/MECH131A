@@ -185,3 +185,8 @@ cython_debug/
 *.snm
 *.fls
 *.fdb_latexmk
+
+# matlab
+*.asv
+*.m~
+
