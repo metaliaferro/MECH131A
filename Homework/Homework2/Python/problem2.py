@@ -22,8 +22,8 @@ plt.colorbar()
 plt.streamplot(X, Y, U, V)
 
 plt.figure()
-V, U = np.gradient(- T - T.T, x, y)
-plt.contourf(X, Y, T + T.T)
+V, U = np.gradient(- T - np.fliplr(T.T), x, y)
+plt.contourf(X, Y, T + np.fliplr(T.T))
 plt.colorbar()
 plt.streamplot(X, Y, U, V)
 
@@ -34,10 +34,9 @@ plt.colorbar()
 plt.streamplot(X, Y, U, V)
 
 plt.figure()
-V, U = np.gradient(- T - T.T - np.fliplr(T.T), x, y)
-plt.contourf(X, Y, T + T.T + np.fliplr(T.T))
+V, U = np.gradient(- T - np.flipud(T) - np.fliplr(T.T), x, y)
+plt.contourf(X, Y, T + np.flipud(T) + np.fliplr(T.T))
 plt.colorbar()
 plt.streamplot(X, Y, U, V)
-
 
 plt.show()
