@@ -13,7 +13,7 @@ def roots(N, Bi):
 
     zeros = np.zeros(N)
     for n in np.arange(N):
-        limit_min = (n - 0.5)*np.pi + 1e-8  # the addition of 1e-8 ensures bracket is just inside the left boundary
+        limit_min = max(1e-8, (n - 0.5)*np.pi + 1e-8)  # the addition of 1e-8 ensures bracket is just inside the left boundary
         limit_max = (n + 0.5)*np.pi - 1e-9  # the subtraction of 1e-9 ensures bracket is just inside the left boundary and that the midpoint between the two brackets is not zero
         guess = 0.5*(limit_min + limit_max)
         # res = root(lambda x: np.tan(x) - Bi/x, guess, )   # this method did not work for large Bi
