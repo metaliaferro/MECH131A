@@ -1,0 +1,86 @@
+\documentclass[9pt, aspectratio=169, handout]{beamer}
+
+\input{settings.tex}
+
+\title{MAE 131A Discussion Sections\\ Week 6}
+\author{Chuanjin Su}
+\institute[UCLA MAE]{Mechanical and Aerospace Engineering Department\\
+    University of California, Los Angeles}
+\date{Nov 8, 2024}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Problem 1 (8.29 in the book)}
+    \textbf{Problem 8.29}. Engine oil flows at a rate of \SI{1}{kg/s} through a \SI{5}{mm}-diameter straight tube. The oil has an inlet temperature of \SI{45}{\celsius} and it is desired to heat the oil to a mean temperature of \SI{80}{\celsius} at the exit of the tube. The surface of the tube is maintained at \SI{150}{\celsius}. Determine the required length of the tube. \textit{Hint}: Calculate the Reynolds numbers at the entrance and exit of the tube before proceeding with your analysis.
+
+    \vspace{1ex}
+    \textbf{Given}: The properties of engine oil are found in Table A5. Correlations are given in Table 8.4.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Problem 1 Solution}
+    \textbf{Solution}. At entrance and exit, the dynamic viscosities are taken to be $\mu_i = \SI{16.3e-2}{N.s/m^2}, \mu_o = \SI{3.25e-2}{N.s/m^2}$. The Reynolds number at the entrance and the exit of the tube are (Eq. 8.6 in the book),
+    \begin{align}
+        \mathrm{Re}_{Di} &= \frac{4\dot{m}}{\pi D \mu_i} = \frac{4 \times 1}{\pi \times 0.005 \times 16.3 \times 10^{-2}} = 1560, \\
+        \mathrm{Re}_{Do} &= \frac{4\dot{m}}{\pi D \mu_o} = \frac{4 \times 1}{\pi \times 0.005 \times 3.25 \times 10^{-2}} = 7840.
+    \end{align}
+    Therefore, the flow is laminar at the entrance and turbulent at the exit. The transition occurs at $\mathrm{Re} \approx 2300$, i.e., when $\mu=\frac{4\dot{m}}{\pi D \times 2300} = \SI{11.1e-2}{N.s/m^2}$, or $T=\SI{325}{K}=\SI{52}{\celsius}$.
+    
+    \textbf{Laminar region}. The average temperature is the laminar region is $T_m = \frac{T_i+T_o}{2} = \frac{45+52}{2} = \SI{48.5}{\celsius}$, thus $\mu_{l} = \SI{13.2e-2}{N.s/m^2}, k_l = \SI{0.143}{W/m.K}, \mathrm{Pr}_l = 1851$. Recalculate the Reynolds number in this region: $\mathrm{Re}_{Dl} = \frac{4\dot{m}}{\pi D \mu_l} = 1930$, the hydrodynamic and thermal entry lenghs are:
+    \begin{align}
+        L_{h,l} &= 0.05 \times \mathrm{Re}_{Dl} \times D = 0.05 \times 1930 \times 0.005 = \SI{0.48}{m}, \\
+        L_{t,l} &= 0.05 \times L_{h,l} \times \mathrm{Pr}_l = 0.05 \times 0.48 \times 1851 = \SI{890}{m}.
+    \end{align}
+    Therefore, it is reasonable to assume that the flow is hydrodynamically fully developed but thermally developing:
+    \begin{align}
+        \overline{\mathrm{Nu}}_{Dl} &= \frac{\overline{h}_l D}{k_l} = 3.66 + \frac{0.0668 (D/L_l) Re_{Dl}Pr_{l}}{1 + 0.04 [(D/L_l) Re_{Dl}Pr_{l}]^{2/3}} \label{eq:nusselt}\\
+        \frac{T_s - T_{m, t}}{T_s - T_i} &= \exp\left( -\frac{\pi D L_l}{\dot{m} c_{pl}}\overline{h}_l \right) \label{eq:temp}
+    \end{align}
+    From Eq.~\eqref{eq:temp}, the product $\overline{h}_l L_l$ can be solved. Thus substitue this into Eq.~\eqref{eq:nusselt}, the length can be solved to be $L_l = \SI{18.1}{m}$.
+
+    \framebreak
+
+    \textbf{Turbulent region}. The average temperature is \SI{66}{\celsius} or \SI{339}{K}, the properties are $\mu_{t} = \SI{5.62e-2}{N.s/m^2}, k_t = \SI{0.139}{W/m.K}, \mathrm{Pr}_t = 834$. The Reynolds number is,
+    \begin{equation*}
+        \mathrm{Re}_{Dt} = \frac{4\dot{m}}{\pi D \mu_t} = 4530.
+    \end{equation*}
+    In this area, the flow can be assumed to be both hydrodynamically and thermally fully developed. The Nusselt number is,
+    \begin{equation*}
+        \mathrm{Nu}_{Dt} = \frac{(f/8) (\mathrm{Re}_{Dt} - 1000)\mathrm{Pr}}{1 + 12.7 (f/8)^{1/2} (\mathrm{Pr}^{2/3} - 1)}
+    \end{equation*}
+    where $f = (0.790\log \mathrm{Re}_{Dt} - 1.64)^{-2}$. It can be calculated that $\mathrm{Nu}_{Dt} = 184$, thus $h_{t} = \mathrm{Nu}_{Dt}k_t / D = \SI{5120}{W/m^2.K}$. By the expotential decay of temperature,
+    \begin{equation*}
+        \frac{T_s - T_{o}}{T_s - T_{m, t}} = \exp\left( -\frac{\pi D L_t}{\dot{m} c_{pt}}h_t \right)
+    \end{equation*}
+    it can be solved that $L_t = \SI{8.7}{m}$.
+
+    Therefore, the total length of the tube is $L = L_l + L_t = \SI{26.8}{m}$.
+\end{frame}
+
+\begin{frame}{Problem 2 (9.16 in the book)}
+    \textbf{Problem 9.16}. Determine the average convection heat transfer coefficient for the \SI{2.5}{m}-high vertical walls of a home having respective interior air and wall surface temperatures of (a) 20 and \SI{10}{\celsius} and (b) 27 and \SI{37}{\celsius}.
+
+    \vspace{1ex}
+    \textbf{Given}: The properties of air are found in Table A.4. The thermal expansion coefficient is treated as the ideal gas case $\beta = 1/T$.
+\end{frame}
+
+\begin{frame}{Problem 2 Solution}
+    \textbf{Solution}. The properties of air at $T = \SI{15}{\celsius}$ are: $\beta = \SI{3.472e-3}{K^{-1}}, \nu=\SI{14.86e-6}{m^2/s}, k=\SI{0.0253}{W/m.K}, \alpha=\SI{20.9e-6}{m^2/s}, \mathrm{Pr} = 0.710$.
+
+    The Rayleigh number is,
+    \begin{equation*}
+        \mathrm{Ra}_L = \frac{g\beta\Delta T L^3}{\nu\alpha} = \frac{9.81 \times 3.472 \times 10^{-3} \times 10 \times 2.5^3}{14.86 \times 10^{-6} \times 20.9 \times 10^{-6}} = 1.711 \times 10^10
+    \end{equation*}
+    therefore, the Nusselt number is,
+    \begin{equation*}
+        \overline{\mathrm{Nu}}_L = \left\lbrace 0.825 + \frac{0.387 \mathrm{Ra}_L^{1/6}}{[1 + (0.492/\mathrm{Pr})^{9/16}]^{8/27}} \right\rbrace^2 = 299.6
+    \end{equation*}
+    thus the heat transfer coefficient is $\overline{h} = \overline{\mathrm{Nu}}_L k/L = \SI{3.03}{W/m^2.K}$.
+
+    For the second case, the process is the same, only with another set of properties: $\beta = \SI{3.279e-3}{K^{-1}}, \nu=\SI{16.39e-6}{m^2/s}, k=\SI{0.0267}{W/m.K}, \alpha=\SI{23.2e-6}{m^2/s}, \mathrm{Pr} = 0.706$. The Rayleigh number is $1.320\times 10^{10}$, and the average Nusselt number is $275.8$, thus the heat transfer coefficient is $\SI{2.94}{W/m^2.K}$.
+\end{frame}
+
+\end{document}
