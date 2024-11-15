@@ -150,11 +150,12 @@ if __name__ == "__main__":
         print(qrad, qrad_total)
         print(Trad)
 
+    # Visualize radiation solution
     T_class = constant_flux_solution(x, qrad/(k*t), L) + Tw
     for eps in epsilon:
         variable_grouping = (eps*sigma)/(k*t)
         plt.figure()
-        plt.plot(x, T_class + Tw)
+        plt.plot(x, T_class)
         for ii, Bi in enumerate([0.1, 1.0, 10.0]):
             T_bi = constant_flux_Bi_solution(x, qrad/(k*t), L, Bi) + Tw
             Trad = radiative_temperature(qrad, eps, sigma, L, k, t, Tw)
@@ -175,7 +176,7 @@ if __name__ == "__main__":
             plt.plot(x, T_bi, label = 'Bi = {0:.1e}'.format(Bi), color = colorwheel[ii + 1])
             plt.plot(ivpres_rad.t, ivpres_rad.y[0], linestyle='None', marker='o', color = colorwheel[ii + 1])
         plt.legend()
-        plt.show()
+    plt.show()
 
 
 
