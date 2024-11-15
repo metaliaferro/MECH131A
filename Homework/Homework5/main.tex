@@ -1,0 +1,76 @@
+
+\documentclass[12pt,letterpaper]{article}
+
+
+\input{./packages}
+\input{./formatting}
+\input{./myfunctions}
+
+\begin{document}
+
+\noindent
+MECH 131A Homework 5
+
+\noindent
+Assigned date: November $10^{\mathrm{th}}$, 2024
+
+\noindent
+Due date: November $15^{\mathrm{th}}$, 2024
+
+\subsubsection*{Instructions}
+\begin{enumerate}
+	\item Indicate the names of your study group members.
+	\item Draw a sketch of the problem.
+	\item If using a specific solution methodology is specified, please include a copy of the Python/MATLAB script.
+		Some sort of package that calculates properties, such as CoolProp, will likely be very useful. 
+	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computational methodology.
+\end{enumerate}
+
+
+\subsubsection*{Problem Set}
+\begin{enumerate}
+    \item The side wall of a house is \SI{10}{\meter} in height.
+        The overall heat transfer coefficient between the interior air and exterior surface is \SI{2.5}{\watt\per\square\meter\per\kelvin}.
+        On a cold night, still winter night $T_{\mathrm{outside}} = - \SI{30}{\celsius}$ and $T_{\mathrm{inside~air}} = \SI{25}{\celsius}$.
+        What is $\overline{h}_{\mathrm{conv}}$ on the exterior wall of the house if $\epsilon = 0.9$?
+        Is the external convection laminar or turbulent?
+    
+    \item A circular grill of diameter \SI{0.25}{\meter} and emissivity of 0.9 is maintained at a constant surface temperature of \SI{130}{\celsius}.
+        What electrical power is required when the room air and surroundings are at \SI{24}{\celsius}?
+    
+    \item The hot and cold inlet temperatures to a concentric tube heat exchanger are $T_{h,i} \SI{200}{\celsius}$, $T_{c,i} \SI{100}{\celsius}$, respectively.
+        The outlet temperatures are $T_{h,o} \SI{110}{\celsius}$, $T_{c,o} \SI{125}{\celsius}$.
+        Is the heat exchanger operating in a parallel flow or in a counterflow configuration?
+        What is the heat exchanger effectiveness?
+        What is the NTU?
+        Phase change does not occur in either fluid.
+
+    \item To make lead shot, molten droplets of lead are showered into the top of a tall tower.
+        The droplets fall through air and solidify before they reach the bottom of the tower, where they are collected.
+        Cool air is introduced at the bottom of the tower and warm air flows out the top.
+        For a particular tower, \SI{5000}{\kilogram\per\hour} of \SI{2.8}{\milli\meter} diameter droplets are released at their melting temperature of \SI{600}{\kelvin}.
+        The latent heat of solidification is \SI{23.1}{\kilo\joule\per\kilogram}.
+        The droplets have a density of \num{6700} droplets per cubic meter in the tower.
+        Air enters the bottom at \SI{20}{\celsius} with a mass flow rate of \SI{2400}{\kilogram\per\hour}.
+        The tower has an internal diameter of \SI{0.6}{\meter} with adiabatic walls.
+        Ignore radiative heat transfer.
+
+        \begin{enumerate}
+            \item Derive an expression for the steady-state velocity relative to the velocity of the air for the droplets by balancing the drag force with gravity.
+                Do not solve it; you will need it below.
+            \item Derive an expression for $UA$.
+                Do not solve it; you will need it below.
+            \item Determine the air temperature and height at the point where the lead has just finished solidifying.
+                In addition, determine the air temperature and additional height if the shot should be \SI{60}{\celsius} when it finally reaches the bottom.
+                These are stated as separate questions but will need to be solved simultaneously.
+                Use the average air temperature in each section of the flow to calculate air properties.
+                You will likely have to iterate to a solution as the properties of the air flow vary as a function of height.
+                \begin{enumerate}
+                    \item Solve this using the $\epsilon$--NTU methodolgy.
+                    \item Solve this using the logarithmic mean temperature difference methodology.
+                \end{enumerate}
+        \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

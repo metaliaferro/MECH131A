@@ -1,0 +1,55 @@
+
+\documentclass[12pt,letterpaper]{article}
+
+
+\input{./packages}
+\input{./formatting}
+\input{./myfunctions}
+
+\begin{document}
+
+\noindent
+MECH 131A Midterm Project
+
+\noindent
+Assigned date: November $3^{\mathrm{th}}$, 2024
+
+\noindent
+Due date: November $17^{\mathrm{th}}$, 2024
+
+\subsubsection*{Instructions}
+\begin{enumerate}
+	\item This is a project for up to two people.
+	\item If using a specific solution methodology is specified, please include a copy of the Python/MATLAB script.
+	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computational methodology.
+\end{enumerate}
+
+\subsubsection*{Radiative Heating of Water}
+
+This project further explores the radiative heating of water assigned in homework 2.
+So far for this problem, you have added a resistance network between the water and the plate, as well as modeling the effect of radiative heat transfer from the plate.
+Now, you will also add in the convection heat transfer from a radiating surface as well as convective heat transfer from the water.
+This will continue to be a 1-D problem, where the temperature variation in the direction of the flow of the water is neglected.
+
+\begin{enumerate}
+    \item Draw a sketch of the set up starting from the image in the text book.
+        Add in the radiating surface and draw all the heat transfers in the system.
+        You can assume the net incident solar radiation transfer is the \SI{800}{\watt\per\square\meter}.
+    \item Set up the description of the energy balance of the radiating surface accounting for the heat transfer to and from the surface.
+        As in the second homework, assume it has the same emissivity as the plate, and has a net heat transfer with the plate of \SI{800}{\watt\per\square\meter}.
+        Further, use the average heat transfer coefficient to describe the convective heat transfer from the radiative surface.
+        Two emissivities were given in homework 2 problem 1, which one would you pick if designing this system?
+        Use that emissivity for this project.
+    \item You now have a set of two energy equations; one for the radiating surface and one for the plate.
+    	Adding to the the methodology outlined in homework 2, question 1, part b, create three contour plots of the net heat transfer to the water as a function of the Reynolds number over the radiating surface and the Reynolds number in the pipe.
+	\begin{itemize}
+            \item You can assume \SI{800}{\watt\per\square\meter} is constant for each case.
+            \item Use the fin equation that accounts for changing radiative heat transfer along the fin.
+            \item Each contour plot should have a different ratio of convective resistance between the water and pipe and the sum of the conduction resistance of the pipe and the contact resistance between the pipe and plate; use ratios of 0.1, 1, and 10.
+                This accounts to varying the relative sizes of the terms within the Biot number describing the heat transfer from the water to the plate.
+            \item Assume the ambient air has a temperature of \SI{295}{K}.
+        \end{itemize}
+\end{enumerate}
+
+
+\end{document}

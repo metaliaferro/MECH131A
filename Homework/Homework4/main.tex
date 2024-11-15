@@ -1,0 +1,83 @@
+
+\documentclass[12pt,letterpaper]{article}
+
+
+\input{./packages}
+\input{./formatting}
+\input{./myfunctions}
+
+\begin{document}
+
+\noindent
+MECH 131A Homework 4
+
+\noindent
+Assigned date: November $3^{\mathrm{th}}$, 2024
+
+\noindent
+Due date: November $8^{\mathrm{th}}$, 2024
+
+\subsubsection*{Instructions}
+\begin{enumerate}
+	\item Indicate the names of your study group members.
+	\item Draw a sketch of the problem.
+	\item If using a specific solution methodology is specified, please include a copy of the Python/MATLAB script.
+	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computational methodology.
+\end{enumerate}
+
+
+\subsubsection*{Problem Set}
+\begin{enumerate}
+
+    \item A \SI{25}{\milli\meter}, high-tension line has an electrical resistance of \SI{1e-4}{\ohm\per\meter} and is transmitting a current of \SI{1000}{\ampere}.
+    \begin{enumerate}
+        \item Describe how the surface and centerline temperature vary with the Biot number.
+            From a thermal perspective, should the line be made out of aluminum or copper?
+        \item For an aluminum wire, plot how the surface temperature changes with the Reynolds' number.
+    \end{enumerate}
+    
+    \item Beginning with the equation,
+    \begin{equation*}
+        \mathit{Nu}_x = \frac{0.339 \mathit{Re}_x^{1/2} \mathit{Pr}^{1/3}}{\left[ 1 + \left( 0.0468 / \mathit{Pr}^{2/3} \right) \right]^{1/4}}, \quad \mathit{Pe}_x > 100,
+    \end{equation*}
+        show that $\overline{\mathit{Nu}}_L$ for a laminar boundary layer over a flat, isothermal surface is given over the entire range or Prandtl number by this equation:
+        \begin{equation*}
+            \overline{\mathit{Nu}}_L = \frac{0.677 \mathit{Re}_L^{1/2} \mathit{Pr}^{1/3}}{\left[ 1 + \left( 0.0468 / \mathit{Pr}^{2/3} \right) \right]^{1/4}}
+        \end{equation*}
+
+    \item Mercury at \SI{25}{\celsius} at \SI{0.7}{\meter\per\second} over a \SI{4}{\centi\meter} long flat heater at \SI{60}{\celsius}.
+        The flow is laminar.
+        Find $\overline{h}$, $\overline{\tau}_w$, the local heat transfer coefficient at \SI{0.04}{\meter}, and the momentum boundary layer thickness at \SI{0.04}{\meter}
+    
+    \item For air flowing above an isothermal plate, plot the ratio of the laminar to turbulent heat transfer coefficient as a function of $\mathit{Re}_x$.
+        What does the plot suggest about designing for effective heat transfer?
+    
+    \item A \SI{21.5}{\kilogram\per\second} of water is dynamically and thermal developed in a \SI{12}{\centi\meter} (inner-diameter) pipe.
+        The pipe is held at \SI{90}{\celsius} and $\epsilon / D = 0$.
+        Find the heat transfer coefficient, $h$, and the friction factor, $f$, where the bulk temperature of the fluid has reached \SI{50}{\celsius}.
+        Compare the answers when using the Dittus-Boelter, Colburn, McAdams, Sieder-Tate, and Gnielinski correlations.
+        See \textit{A Heat Transfer Textbook} for a description of the various correlations.
+    
+    \item Water enters a smooth walled, \SI{7}{\centi\meter} (inner-diameter) pipe at \SI{5}{\celsius} at a bulk velocity of \SI{0.86}{\meter\per\second}.
+        The pipe wall is kept at \SI{73}{\celsius} by low pressure steam condensing outside.
+        Plot $T_b$ against the position in the pipe until $\left( T_w - T_b \right) / 68 = 0.01$.
+        Neglect the entry length, but consider property variations.
+    
+    \item In the final stages of production, a pharmaceutical is sterilized by heating it from 25 to \SI{75}{\celsius} as it moves at \SI{0.2}{\meter\per\second} through a straight thin-walled stainless steel tube of \SI{12.7}{\milli\meter} diameter.
+        A uniform heat flux is maintained by an electric resistance heater wrapped around the outer surface of the tube.
+        If the tube is \SI{10}{\meter} long, what is the required heat flux?
+        If fluid enters the tube with a fully developed velocity profile and a uniform temperature profile, what is the surface temperature at the tube exit and at a distance of 0.5 m from the entrance?
+        Fluid properties may be approximated as $\rho = \SI{1000}{\kilogram\per\cubic\meter}$, $c_p = \SI{4000}{\joule\per\kilogram\per\kelvin}$, $\mu = \SI{2e-3}{\kilogram\per\second\per\meter}$, $k = \SI{0.8}{\watt\per\meter\per\kelvin}$, and $\mathit{Pr} = 10$.
+    
+    \item A device that recovers heat from high-temperature combustion products involves passing the combustion gas between parallel plates, each of which is maintained at \SI{350}{\kelvin} by water flow on the opposite surface.
+        The plate separation is \SI{40}{\milli\meter}, and the gas flow is fully developed.
+        The gas may be assumed to have the properties of atmospheric air, and its mean temperature and velocity are \SI{1000}{\kelvin} and \SI{60}{\meter\per\second}, respectively.
+        \begin{enumerate}
+            \item What is the heat flux at the plate surface?
+            \item If a third plate, \SI{20}{\milli\meter} thick, is suspended midway between the original plates, what is the surface heat flux for the original plates?
+                Assume the temperature and ow rate of the gas to be unchanged and radiation effects to be negligible.
+        \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
