@@ -1,0 +1,34 @@
+\newcommand{\mymder}[2]{\ensuremath{\frac{\mathrm{D}#1}{\mathrm{D}#2}}}
+\newcommand{\mypder}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\mypdertwo}[2]{\ensuremath{\frac{\partial^2 #1}{\partial #2^2}}}
+\newcommand{\mymdervec}[1]{\ensuremath{mypder{#1}{t} + }}
+\newcommand{\myder}[2]{\ensuremath{\frac{d#1}{d#2}}}
+\newcommand{\mydiv}[1]{\ensuremath{\nabla \cdot {#1}}}
+\newcommand{\myfrac}[2]{\ensuremath{^{#1}\!/_{#2}}}
+\newcommand{\myfunc}[2]{\ensuremath{#1 \left( #2 \right)}}
+\newcommand{\myparen}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\mybrack}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\mybrace}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\mysin}[1]{\ensuremath{\myfunc{\mathrm{sin}}{#1}}}
+\newcommand{\mycos}[1]{\ensuremath{\myfunc{\mathrm{cos}}{#1}}}
+\newcommand{\myexp}[1]{\ensuremath{\myfunc{\mathrm{exp}}{#1}}}
+\newcommand{\myint}[4]{\ensuremath{\int_{#1}^{#2} {#3} d {#4}}}
+
+
+\newcommand{\Rld}{\ensuremath{\mathit{Re}}}
+\newcommand{\St}{\ensuremath{\mathit{St}}}
+\newcommand{\Prn}{\ensuremath{\mathit{Pr}}}
+\newcommand{\Sc}{\ensuremath{\mathit{Sc}}}
+\newcommand{\Sh}{\ensuremath{\mathit{Sh}}}
+\newcommand{\Nu}{\ensuremath{\mathit{Nu}}}
+\newcommand{\Bi}{\ensuremath{\mathit{Bi}}}
+
+
+\let\textacute\'
+\let\textgrave\`
+
+
+\newcommand{\includetikz}[2]{%
+    \tikzsetnextfilename{#2}%
+    \input{#1#2.tex}%
+}
