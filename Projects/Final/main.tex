@@ -12,14 +12,15 @@
 MECH 131A Midterm Project
 
 \noindent
-Assigned date: November $3^{\mathrm{th}}$, 2024
+Assigned date: December $2^{\mathrm{nd}}$, 2024
 
 \noindent
-Due date: November $17^{\mathrm{th}}$, 2024
+Due date: December $15^{\mathrm{th}}$, 2024
 
 \subsubsection*{Instructions}
 \begin{enumerate}
-	\item This is a project for up to three people.
+	\item This is a project for up to three people; two people for graduate students.
+		Choose one of the two problems below to solve.
 	\item If using a specific solution methodology is specified, please include a copy of the Python/MATLAB script.
 	\item If using a specific solution methodology is \textit{not} specified, please include a copy of your computational methodology.
 \end{enumerate}
@@ -28,8 +29,8 @@ Due date: November $17^{\mathrm{th}}$, 2024
 
 You retired from the rat race and want to buy some land and grow plants and tend some entitled chickens.
 You decide to design a green house and want to estimate the daily and annual temperature variation within the green house.
-Since no money is of no object when you are dreaming, you are trying to pick between low iron glass, high iron glass, fuzed quartz, and lucite.
-For this analysis you can assume a cube shaped green house with the roof and south facing wall are glass, while the others are completely reflective of light.
+You are trying to pick between low and high iron glass.
+For this analysis you can assume a cube shaped green house with the roof and south facing wall are glass, while the others completely reflect incident light.
 
 \begin{enumerate}
     \item Draw a diagram showing \textit{all} the heat transfers for the green house.
@@ -37,42 +38,44 @@ For this analysis you can assume a cube shaped green house with the roof and sou
     \item Describe the heat transfer correlations used for all the interior and exterior surfaces.
 
     \item Calculate the ratio of energy from sunlight that is reflected, transmitted and absorbed by each type of glass as a rough function of wavelength.
+        Expected resolution of this calculation is on the order of 0.1 through 1 \si{\micro\meter}
     
     \item For the summer and winter solstice, find the daily temperature variation from midnight to midnight.
-        Find the temperature variation for each type of ``glass'' for 16 combinations of the following boundary conditions:
+        Find the temperature variation for each type of ``glass'' for all four combinations of the following boundary conditions:
         \begin{enumerate}
             \item 0 \si{\meter\per\second} and 10 \si{\meter\per\second} for wind speed,
-            \item \SI{235}{\kelvin} and \SI{285}{\kelvin} for the sky temperature,
-            \item rain or no rain,
-            \item and sunlight or no sunlight.
+            \item \SI{235}{\kelvin} and \SI{285}{\kelvin} for the sky temperature.
         \end{enumerate}
-        Do any of the conditions seem to be more important than the others?
-        Which combinations of the bounding assumptions are unlikely?
+        Which conditions seems to be more important?
         To simplify the analysis you can assume 15 and 9 hours of daylight for the summer solstice and winter solstice, respectively.
-        Further, you can assume a cosine function for the maximum irradiance of 1000 and \SI{800}{\watt\per\square\meter} for the summer and winter solstice, respectively
+        Further, you can assume a cosine function for the maximum irradiance of 1000 and 800 \si{\watt\per\square\meter} for the summer and winter solstice, respectively.
     
         \item How does the size of the cube affect the temperature variation?
             Give a brief explanation.
+        
+        \item Which glass would you pick.
+            Justify your answer.
 \end{enumerate}
 
 
 \subsubsection*{Cryogenic Tank Heat Transfer}
 
 You are part of a team that analyzes cryogenic propellant tank temperatures and pressures for a rocket.
-Your team maintains a thermal lumped parameter model used to predict tank conditions throughout flight.
+Your team maintains a thermal lumped parameter model---every distinct material has a spatially uniform temperature---used to predict tank conditions throughout flight.
 There is concern about the effect of the heat loss through wall of the tank near the top where the gas is (commonly called ``the ullage'').
 Your task is to develop a model to more accurately predict the net heat transfer to the vehicle.
-Currently, the model is lumped and assumes the walls temperature distribution is not important.
+
+Currently, the model is lumped and assumes the wall temperature distribution is not important.
 For the analysis below, you can assume the heat transfer coefficients for a given volume of fluid are the same at a wall-fluid interface and that radiative heat transfer within the tank is negligible.
 There are three sets of bounding assumptions you will need to work with: wind speed, sky temperature, and cloud conditions.
 The bounding assumptions are all eight combinations of 0 \si{\meter\per\second} and 10 \si{\meter\per\second} for wind speed, \SI{235}{\kelvin} and \SI{285}{\kelvin} for the sky temperature, and sunlight or no sunlight.
 
 \begin{enumerate}
-    \item Solve for the heat transfer in the default lumped model assuming the propellant are at saturation temperature.
+    \item Solve for the heat transfer in the default lumped model assuming the propellants are at saturation temperature.
     
     \item Derive the governing equation for the thin walls shown in the figure below.
         Assume you can ignore the transverse temperature change across the tank walls.
-        Describe the two possible far-field boundary conditions for the tank walls in terms of the heat transfer coefficients.
+        Describe the semi-infinite boundary conditions for the tank walls in terms of the heat transfer coefficients.
 
     \item Describe the heat transfer correlations used for all the surfaces.
 
